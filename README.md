@@ -10,7 +10,7 @@ A single-page **Cyber-Luxe Command Center** portfolio for **Ragul Vasudevan** (A
 - **Experience nodes**: Yap Market (AI), BQ Labs (DeFi), CBA Tech (Growth) with metrics, code block, trophy, and chart
 - **Tech Arsenal**: Skills grid (AI Core, Vibe Coding, Blockchain)
 - **Agent Ragul**: Floating chatbot with pre-set prompts (Hackathon story, Vibe coding, Projects)
-- **Unlock**: At 100% Trust Level — resume download, email contact, QR vCard
+- **Contact section**: Bottom section with resume download, social links, and QR vCard
 
 ## Design
 
@@ -40,4 +40,4 @@ npm run preview
 - Tailwind CSS 4
 - Framer Motion (layout/UI animations)
 - GSAP + ScrollTrigger (timeline scroll reveal)
-- qrcode.react (vCard QR in unlock overlay)
+- qrcode.react (vCard QR in contact section)

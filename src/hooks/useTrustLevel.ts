@@ -9,7 +9,6 @@ const MAX_CLICKS = 5;
 
 export function useTrustLevel() {
   const [trust, setTrust] = useState(MIN_TRUST);
-  const [unlocked, setUnlocked] = useState(false);
   const [clickCount, setClickCount] = useState(0);
 
   const addFromScroll = useCallback((scrollRatio: number) => {
@@ -27,10 +26,6 @@ export function useTrustLevel() {
   }, [clickCount]);
 
   useEffect(() => {
-    if (trust >= MAX_TRUST) setUnlocked(true);
-  }, [trust]);
-
-  useEffect(() => {
     const onScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight <= 0) return;
@@ -42,5 +37,5 @@ export function useTrustLevel() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [addFromScroll]);
 
-  return { trustPercent: Math.round(trust), unlocked, addFromClick };
+  return { trustPercent: Math.round(trust), addFromClick };
 }

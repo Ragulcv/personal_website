@@ -1,27 +1,22 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import LoadingScreen from "./components/LoadingScreen";
 import HUD from "./components/HUD";
 import Hero from "./components/Hero";
 import ExperienceNodes from "./components/ExperienceNodes";
 import TechArsenal from "./components/TechArsenal";
+import ContactSection from "./components/ContactSection";
 import AgentRagul from "./components/AgentRagul";
-import UnlockOverlay from "./components/UnlockOverlay";
 import { useTrustLevel } from "./hooks/useTrustLevel";
 
 function App() {
   const [loadingDone, setLoadingDone] = useState(false);
-  const { trustPercent, unlocked, addFromClick } = useTrustLevel();
-  const [showUnlock, setShowUnlock] = useState(false);
+  const { trustPercent, addFromClick } = useTrustLevel();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLoadingComplete = useCallback(() => {
     setLoadingDone(true);
   }, []);
-
-  useEffect(() => {
-    if (unlocked) setShowUnlock(true);
-  }, [unlocked]);
 
   return (
     <>
@@ -51,6 +46,7 @@ function App() {
                 <li><a href="#node-bq" className="text-sm text-[#EDEDED] hover:text-[#00F0FF]" style={{ fontFamily: "var(--font-data)" }}>BQ LABS</a></li>
                 <li><a href="#node-cba" className="text-sm text-[#EDEDED] hover:text-[#00F0FF]" style={{ fontFamily: "var(--font-data)" }}>CBA TECH</a></li>
                 <li><a href="#tech" className="text-sm text-[#EDEDED] hover:text-[#00F0FF]" style={{ fontFamily: "var(--font-data)" }}>TECH ARSENAL</a></li>
+                <li><a href="#contact" className="text-sm text-[#EDEDED] hover:text-[#00F0FF]" style={{ fontFamily: "var(--font-data)" }}>CONTACT</a></li>
               </ul>
             </nav>
           )}
@@ -59,13 +55,10 @@ function App() {
             <Hero />
             <ExperienceNodes />
             <TechArsenal />
+            <ContactSection />
           </main>
 
           <AgentRagul />
-
-          {showUnlock && (
-            <UnlockOverlay onClose={() => setShowUnlock(false)} />
-          )}
         </motion.div>
       )}
     </>
